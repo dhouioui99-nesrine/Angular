@@ -1,0 +1,292 @@
+/* Positionne le contenu principal à droite de la sidebar */
+/* Container sidebar */
+.vertical-sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #0C0E23;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+}
+
+/* Logo */
+.sidebar-header {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #1c1f3a;
+}
+
+.sidebar-header img {
+  width: 150px;
+}
+
+/* Navigation */
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.sidebar-nav li {
+  width: 100%;
+}
+
+.sidebar-nav li a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.sidebar-nav li a i {
+  margin-right: 10px;
+}
+
+.sidebar-nav li a:hover,
+.sidebar-nav li a.active {
+  background-color: #F28C1D;
+  color: white;
+}
+
+/* Logout */
+.logout-section {
+  padding: 20px;
+  border-top: 1px solid #1c1f3a;
+}
+
+.logout-section a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: #F28C1D;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+.logout-section a:hover {
+  background-color: #e47c12;
+}
+
+
+
+.app-container {
+  display: flex;
+}
+
+.vertical-sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #0C0E23;
+  position: fixed;
+  left: 0;
+  top: 0;
+  color: white;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* Assurer que l'app-container occupe tout l'écran */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f4f9;
+}
+
+/* Sidebar fixe */
+.vertical-sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #0C0E23;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+/* Sidebar header */
+.sidebar-header {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #1c1f3a;
+}
+
+.sidebar-header img {
+    width: 150px;
+}
+
+/* Navigation */
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.sidebar-nav li a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.sidebar-nav li a i {
+    margin-right: 10px;
+}
+
+.sidebar-nav li a:hover,
+.sidebar-nav li a.active {
+    background-color: #F28C1D;
+    color: white;
+}
+
+/* Logout */
+.logout-section {
+    padding: 20px;
+    border-top: 1px solid #1c1f3a;
+    text-align: center;
+}
+
+.logout-section a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: #F28C1D;
+    transition: background 0.3s ease;
+}
+
+.logout-section a:hover {
+    background-color: #e47c12;
+}
+
+/* Contenu principal décalé à droite de la sidebar */
+.main-content {
+    margin-left: 250px; /* largeur de la sidebar */
+    flex: 1;
+    padding: 30px;
+    background-color: #f4f4f9;
+}
+
+/* Conteneur interne */
+.main-content .container {
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Titre */
+.main-content h2 {
+    color: #0C0E23;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Filtres mois/année */
+.filtre-date {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filtre-date label {
+    font-weight: 600;
+    color: #0C0E23;
+}
+
+.filtre-date select {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #0C0E23;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filtre-date select:hover {
+    border-color: #F28C1D;
+}
+
+.filtre-date select:focus {
+    outline: none;
+    border-color: #F28C1D;
+    box-shadow: 0 0 5px rgba(242, 140, 29, 0.5);
+}
+
+/* Table */
+.table {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-top: 15px;
+}
+
+.table th {
+    background-color: #0C0E23;
+    color: #F28C1D;
+    font-weight: 600;
+    text-align: center;
+    padding: 12px;
+}
+
+.table td {
+    text-align: center;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.table-striped tbody tr:hover {
+    background-color: #FFF3E0;
+    transition: background-color 0.3s ease;
+}
+
+/* Alert pour aucun timesheet */
+.alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border-radius: 6px;
+    padding: 12px;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .filtre-date {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

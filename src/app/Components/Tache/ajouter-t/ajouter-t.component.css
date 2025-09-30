@@ -1,0 +1,124 @@
+/* Layout principal */
+.app-container {
+  display: flex;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.vertical-sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #0C0E23;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+}
+
+.sidebar-header {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #1c1f3a;
+}
+
+.sidebar-header img {
+  width: 150px;
+}
+
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.sidebar-nav li a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.sidebar-nav li a i {
+  margin-right: 10px;
+}
+
+.sidebar-nav li a:hover,
+.sidebar-nav li a.active {
+  background-color: #F28C1D;
+  color: white;
+}
+
+.logout-section {
+  padding: 20px;
+  border-top: 1px solid #1c1f3a;
+}
+
+.logout-section a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: #F28C1D;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+.logout-section a:hover {
+  background-color: #e47c12;
+}
+
+/* Formulaire */
+.form-container {
+  margin-left: 250px;
+  padding: 40px;
+  width: 100%;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  color: #F28C1D;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Bouton Ajouter */
+.btn-ajouter {
+  background-color: #007BFF; /* ou #F28C1D si couleur logo */
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  float: right; /* bouton à droite */
+  transition: background 0.3s ease;
+}
+
+.btn-ajouter:hover {
+  background-color: #0056b3;
+}

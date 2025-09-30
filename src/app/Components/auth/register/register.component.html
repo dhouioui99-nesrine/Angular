@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/assets/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100">
+      	
+			<div class="wrap-login100">
+      
+				<div class="login100-pic js-tilt" data-tilt>
+			  		<img src="/assets/logo2.jpg" alt="IMG">
+				</div>
+
+			<form class="login100-form validate-form" (ngSubmit)="onRegister()" #registerForm="ngForm" novalidate>
+  <span class="login100-form-title">Inscription</span>
+
+  <!-- Code employé -->
+  <div class="wrap-input100 validate-input">
+  
+ <input class="input" type="text"  class="input100"
+         name="empCode"
+         [(ngModel)]="request.empCode"
+         #empCodeRef="ngModel"
+         (blur)="checkEmpCode()"
+         placeholder="Code employé">
+  <div *ngIf="empCodeExists" class="error-message">
+  Ce code employé n'existe pas.
+  </div>
+    </div>
+  <!-- Nom -->
+  <div class="wrap-input100 validate-input">
+    <input
+      class="input100"
+      type="text"
+      id="lastname"
+      name="lastname"
+      placeholder="Nom employé"
+      [(ngModel)]="request.lastname"
+      required />
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+      <i class="fa fa-user" aria-hidden="true"></i>
+    </span>
+  </div>
+
+  <!-- Email -->
+  <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+   <input class="input" type="email" class="input100"
+       name="email"
+       [(ngModel)]="request.email"
+       #emailRef="ngModel"
+       (blur)="checkEmail()"
+       placeholder="E-mail" />
+
+<div *ngIf="emailExists" class="error-message">
+  Cet e-mail  n'existe pas.
+</div>
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+      <i class="fa fa-envelope" aria-hidden="true"></i>
+    </span>
+  </div>
+
+  <!-- Mot de passe -->
+  <div class="wrap-input100 validate-input" data-validate="Password is required">
+    <input
+      class="input100"
+      type="password"
+      id="password"
+      name="password"
+      placeholder="Password"
+      [(ngModel)]="request.password"
+      required
+      minlength="6" />
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+      <i class="fa fa-lock" aria-hidden="true"></i>
+    </span>
+  </div>
+  
+  <label>
+    <input type="checkbox" [(ngModel)]="request.mfaEnabled" name="mfaEnabled"> Activer 2FA
+  </label>
+  <!-- Bouton -->
+  <div class="container-login100-form-btn">
+    <button class="login100-form-btn" type="submit" [disabled]="registerForm.invalid">
+      S'inscrire
+    </button>
+  </div>
+
+  <!-- Lien vers login -->
+  <div class="text-center p-t-136">
+    <a class="txt2" routerLink="/login">
+      Login
+      <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+    </a>
+  </div>
+
+<div *ngIf="errorMessage" class="alert alert-danger mt-2">
+  <i class="fa fa-exclamation-circle"></i> {{ errorMessage }}
+</div>
+
+  <!-- Affiche le QR Code si disponible -->
+<div *ngIf="qrCode">
+  <p>Scannez ce QR Code avec votre application MFA :</p>
+  <img [src]="qrCode" alt="QR Code MFA" />
+</div>
+
+<!-- Champ pour saisir le code MFA -->
+<div *ngIf="qrCode">
+  <label for="mfaCode">Entrez le code MFA généré :</label><br/>
+    <input id="mfaCode" name="mfaCode" type="text" maxlength="6" [(ngModel)]="mfaCode" placeholder="123456" /><br/><br/>
+</div>
+
+<!-- Bouton pour vérifier le code -->
+<div *ngIf="qrCode">
+  <button (click)="verifyMfaCode()">Valider le code MFA</button>
+</div>
+
+<!-- Message d'erreur si code invalide -->
+<p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
+</form>
+            </div></div></div>
+	
+
+
+
+</body>
+</html>

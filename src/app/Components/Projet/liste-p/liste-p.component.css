@@ -1,0 +1,154 @@
+/* Positionne le contenu principal à droite de la sidebar */
+/* Container sidebar */
+.vertical-sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #0C0E23;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+}
+
+/* Logo */
+.sidebar-header {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #1c1f3a;
+}
+
+.sidebar-header img {
+  width: 150px;
+}
+
+/* Navigation */
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.sidebar-nav li {
+  width: 100%;
+}
+
+.sidebar-nav li a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.sidebar-nav li a i {
+  margin-right: 10px;
+}
+
+.sidebar-nav li a:hover,
+.sidebar-nav li a.active {
+  background-color: #F28C1D;
+  color: white;
+}
+
+/* Logout */
+.logout-section {
+  padding: 20px;
+  border-top: 1px solid #1c1f3a;
+}
+
+.logout-section a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: #F28C1D;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+.logout-section a:hover {
+  background-color: #e47c12;
+}
+
+
+
+.app-container {
+  display: flex;
+}
+
+.vertical-sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #0C0E23;
+  position: fixed;
+  left: 0;
+  top: 0;
+  color: white;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Décale le contenu principal pour ne pas passer sous la sidebar */
+.main-content {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  padding: 20px;
+}
+
+/* Styliser le tableau */
+.table th {
+  background-color: #F28C1D;
+  color: white;
+}
+
+.table td, .table th {
+  vertical-align: middle;
+}
+
+.icon-container {
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.edit-icon {
+  color: #0d6efd;
+}
+
+.delete-icon {
+  color: #dc3545;
+}
+.fa-clipboard-check
+{
+     color: green; 
+}
+.btn-logo-blue {
+  background-color: #0C0E23;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-logo-blue:hover {
+  background-color: #1A1C35;
+  color: white;
+}
+
+td {
+  white-space: normal;   /* autorise le retour à la ligne */
+  word-wrap: break-word; /* casse les mots trop longs */
+  max-width: 400px;      /* limite la largeur de la cellule */
+}
+
+h2{
+  color : #F28C1D;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="/assets/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+
+	<link rel="stylesheet" type="text/css" href="/assets/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+    	<div class="container-login100">
+<div class="verify-container">
+  <h2>Vérification MFA</h2>
+  
+  <label for="email">Email :</label><br/>
+<input id="email" type="email" [(ngModel)]="email" readonly />
+<br> <br>
+  <label for="code">Code MFA :</label><br/>
+  <input id="code" type="text" maxlength="6" [(ngModel)]="code" placeholder="Entrez votre code" /><br/><br/>
+
+  <button (click)="verifyMfa()">Suivant</button>
+
+  <p *ngIf="errorMessage" style="color:red">{{ errorMessage }}</p>
+</div>
+  </div>
+</div>
+</body></html>
