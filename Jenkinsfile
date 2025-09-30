@@ -18,7 +18,7 @@ pipeline {
                 checkout scm
                 sh '''
                   npm install --legacy-peer-deps
-                  npm run build -- --configuration production --budgets=false
+                 npm run build -- --configuration production --output-hashing=none
                 '''
                 withSonarQubeEnv('SonarQube') {
                     sh '''
