@@ -10,7 +10,7 @@ pipeline {
         stage('Build & SonarQube') {
             agent {
                 docker {
-                    image 'node:20'   // ou node:20 selon ta version
+                    image 'node:20'
                     args '--network springboot_app-network'
                 }
             }
@@ -18,14 +18,22 @@ pipeline {
                 checkout scm
                 sh '''
                   npm install --legacy-peer-deps
-                 npm run build -- --configuration production --output-hashing=none
+                  npm run build -- --configuration production --output-hashing=none
                 '''
-              withSonarQubeEnv('SonarQube') {
-              docker.image('sonarsource/sonar-scanner-cli:latest').inside {
-                sh 'sonar-scanner -Dsonar.projectKey=frontend -Dsonar.sources=src -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_LOGIN'
             }
-          }
+        }
 
+        stage('SonarQube Scan') {
+            agent {
+                docker {
+                    image 'sonarsource/sonar-scanner-cli:latest'
+                    args '--network springboot_app-network'
+                }
+            }
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh 'sonar-scanner -Dsonar.projectKey=frontend -Dsonar.sources=src -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_LOGIN'
+                }
             }
         }
 
