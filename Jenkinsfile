@@ -11,7 +11,7 @@ pipeline {
             agent {
                 docker {
                     image 'node:18'
-                    args '--network devops-net'
+                    args '--network springboot_app-network'
                 }
             }
             steps {
