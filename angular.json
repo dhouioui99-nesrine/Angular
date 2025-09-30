@@ -30,6 +30,7 @@
             ],
             "scripts": [],
              "allowedCommonJsDependencies": [
+                  "core-js",
                   "canvg",
                   "html2canvas",
                   "rgbcolor",
