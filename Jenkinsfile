@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('Build & SonarQube') {
+        stage('Build Angular') {
             agent {
                 docker {
                     image 'node:18'
@@ -17,8 +17,8 @@ pipeline {
             steps {
                 checkout scm
                 sh '''
-                  npm install --legacy-peer-deps
-                  npm run build -- --configuration production --output-hashing=none
+                  npm ci --legacy-peer-deps
+                  npm run build -- --configuration production
                 '''
             }
         }
@@ -26,13 +26,19 @@ pipeline {
         stage('SonarQube Scan') {
             agent {
                 docker {
-                    image 'sonarsource/sonar-scanner-cli:latest'
+                    image 'sonarsource/sonar-scanner-cli:5.0'
                     args '--network springboot_app-network'
                 }
             }
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh 'sonar-scanner -Dsonar.projectKey=frontend -Dsonar.sources=src -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_LOGIN'
+                    sh '''
+                      sonar-scanner \
+                        -Dsonar.projectKey=frontend \
+                        -Dsonar.sources=. \
+                        -Dsonar.host.url=$SONAR_HOST_URL \
+                        -Dsonar.login=$SONAR_LOGIN
+                    '''
                 }
             }
         }
@@ -46,8 +52,8 @@ pipeline {
             }
             steps {
                 withCredentials([usernamePassword(
-                    credentialsId: 'dockerhub-pass', 
-                    usernameVariable: 'DOCKER_USERNAME', 
+                    credentialsId: 'dockerhub-pass',
+                    usernameVariable: 'DOCKER_USERNAME',
                     passwordVariable: 'DOCKER_PASSWORD'
                 )]) {
                     sh """
