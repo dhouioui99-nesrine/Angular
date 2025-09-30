@@ -10,7 +10,7 @@ pipeline {
         stage('Build & SonarQube') {
             agent {
                 docker {
-                    image 'node:20'
+                    image 'node:18'
                     args '--network springboot_app-network'
                 }
             }
