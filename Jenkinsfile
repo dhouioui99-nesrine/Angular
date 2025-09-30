@@ -20,15 +20,12 @@ pipeline {
                   npm install --legacy-peer-deps
                  npm run build -- --configuration production --output-hashing=none
                 '''
-                withSonarQubeEnv('SonarQube') {
-                    sh '''
-                        npx sonar-scanner \
-                          -Dsonar.projectKey=frontend \
-                          -Dsonar.sources=src \
-                          -Dsonar.host.url=$SONAR_HOST_URL \
-                          -Dsonar.login=$SONAR_LOGIN
-                    '''
-                }
+              withSonarQubeEnv('SonarQube') {
+              docker.image('sonarsource/sonar-scanner-cli:latest').inside {
+                sh 'sonar-scanner -Dsonar.projectKey=frontend -Dsonar.sources=src -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_LOGIN'
+            }
+          }
+
             }
         }
 
