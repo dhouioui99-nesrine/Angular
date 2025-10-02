@@ -17,7 +17,7 @@ services:
     ports:
       - "9000:9000"
     environment:
-      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true   # permet de lancer en mode simple
     networks:
       - devops-net
 
