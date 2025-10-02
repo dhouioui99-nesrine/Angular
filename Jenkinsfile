@@ -27,7 +27,7 @@ pipeline {
             agent {
                 docker {
                     image 'sonarsource/sonar-scanner-cli:5.0'
-                    args '--network devops-net'
+                    args '--network springboot_app-network'
                 }
             }
             steps {
@@ -47,7 +47,7 @@ pipeline {
             agent {
                 docker {
                     image 'docker:24.0.2-dind'
-                    args '--network devops-net --privileged -v /var/run/docker.sock:/var/run/docker.sock'
+                    args '--network springboot_app-network --privileged -v /var/run/docker.sock:/var/run/docker.sock'
                 }
             }
             steps {
